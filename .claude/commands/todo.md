@@ -5,9 +5,9 @@
 ## 사용법
 
 ```
-/todo 서수현님 급여 차액 확인
-/todo [urgent] 노무사 퇴직금 문의
-/todo [gpters] 19기 선정 결과 확인
+/todo 프로젝트 보고서 초안 작성
+/todo [urgent] 클라이언트 미팅 자료 준비
+/todo [my-project] 리서치 결과 정리
 ```
 
 ## 작동 방식
@@ -55,9 +55,9 @@
 
 **예시 출력:**
 ```
-✅ Todo 추가됨: 서수현님 급여 차액 확인
+✅ Todo 추가됨: 프로젝트 보고서 초안 작성
    Priority: normal
-   Context: gpters-ai-branding-study/README.md
+   Context: my-project/README.md
 
    📝 /todos 로 전체 목록을 확인하세요.
 ```

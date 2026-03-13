@@ -21,7 +21,7 @@ def main():
     home = os.path.expanduser('~')
 
     # WSL 경로 시도, 없으면 Windows 경로
-    wsl_config = '/home/rhim/.config/gspread'
+    wsl_config = os.path.expanduser('~/.config/gspread')
     win_config = os.path.join(home, '.config', 'gspread')
 
     if os.path.exists(wsl_config):

@@ -25,18 +25,18 @@
 ### 예시
 
 ```
-사용자: "/Users/rhim/Downloads/인사이터 3주차_original.txt 이거 강의 정리해줘"
+사용자: "~/Downloads/AI-워크숍-3주차.txt 이거 강의 정리해줘"
 
 Claude:
-1. ✅ 파일 확인
-2. ✅ UTF-16 감지 → UTF-8 변환
-3. 📋 4가지 질문:
+1. 파일 확인
+2. UTF-16 감지 → UTF-8 변환
+3. 4가지 질문:
    - 유형: 강의
    - 날짜: 2025-10-31
-   - 주제: Claude Code 설치 실습
-   - 저장 위치: (자동 감지) pkm/10-projects/12-education/12.04-insighter/week-03/
-4. ✅ 강의 템플릿 적용
-5. ✅ 문서 생성 및 저장
+   - 주제: AI 도구 활용 실습
+   - 저장 위치: (자동 감지) ./10-projects/12-education/workshop/week-03/
+4. 강의 템플릿 적용
+5. 문서 생성 및 저장
 ```
 
 ## 📁 폴더 구조
@@ -142,9 +142,9 @@ Claude:
 
 | 키워드 | 저장 경로 |
 |--------|-----------|
-| "인사이터" | `pkm/10-projects/12-education/12.04-insighter/` |
-| "gangneung" | `pkm/10-projects/11-consulting/11.01-gangneung-cafe-2025/` |
-| "hfk" | `pkm/10-projects/12-education/12.03-hfk/` |
+| "workshop" | `10-projects/12-education/workshop/` |
+| "consulting" | `10-projects/11-consulting/` |
+| "course" | `10-projects/12-education/course/` |
 
 경로 유추 실패 시 → `pkm/00-inbox/` (임시 저장)
 
@@ -177,10 +177,10 @@ Claude:
 
 ## 📊 실제 사용 사례
 
-### 사례 1: 인사이터 3회차 강의 (2025-10-31)
-- **원본**: `/Users/rhim/Downloads/인사이터 3주차_original.txt` (109,907 토큰)
+### 사례 1: AI 워크숍 3회차 강의 (2025-10-31)
+- **원본**: `~/Downloads/AI-워크숍-3주차_original.txt` (109,907 토큰)
 - **인코딩**: UTF-16 → UTF-8 변환
-- **결과**: `pkm/10-projects/12-education/12.04-insighter/week-03/인사이터_3회차_교육_정리.md` (595줄)
+- **결과**: `10-projects/12-education/workshop/week-03/AI_워크숍_3회차_교육_정리.md` (595줄)
 - **소요 시간**: 약 5분
 
 ### 기존 방식과 비교

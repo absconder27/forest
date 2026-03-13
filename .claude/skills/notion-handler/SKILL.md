@@ -167,7 +167,7 @@ python3 ~/.claude/skills/notion-handler/scripts/notion_api.py search --query "�
 ```bash
 python3 ~/.claude/skills/notion-handler/scripts/notion_api.py create-db \
   --parent "2bbd0f53623d80b49e3ed311fe1f6038" \
-  --title "HFK Winter 2025 사전 설문" \
+  --title "AI Workshop 2025 사전 설문" \
   --properties '{
     "이름": "title",
     "회사": "rich_text",

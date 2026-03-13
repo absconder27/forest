@@ -13,11 +13,11 @@ allowed-tools: Bash, Read
 ### 일정 제목 작성 규칙
 **제목에 날짜/시간 절대 포함 금지**
 
-- ❌ "2025-11-13 13:00 커피챗"
-- ❌ "11월 13일 알파브라더스"
-- ❌ "2025-12-06 14:30 HFK 1회차"
-- ✅ "알파브라더스 채중규 대표 커피챗"
-- ✅ "HFK 겨울시즌 1회차: AI 파트너 만들기"
+- ❌ "2025-11-13 13:00 미팅"
+- ❌ "11월 13일 파트너사 미팅"
+- ❌ "2025-12-06 14:30 워크숍 1회차"
+- ✅ "파트너사 대표 미팅"
+- ✅ "AI 워크숍 1회차"
 
 **이유**: 날짜와 시간은 Google Calendar의 메타데이터로 관리되며, 제목에 중복 포함 시 혼란을 야기합니다.
 
@@ -82,12 +82,12 @@ gcalcli agenda --details all 2025-11-13 2025-11-14
 gcalcli search "검색어"
 
 # 특정 캘린더에서만 검색
-gcalcli search "HFK" --calendar "AI"
+gcalcli search "워크숍" --calendar "Work"
 
 # 예시
-gcalcli search "알파브라더스" --calendar "Work"
-gcalcli search "커피챗"
-gcalcli search "강릉"
+gcalcli search "파트너사" --calendar "Work"
+gcalcli search "미팅"
+gcalcli search "프로젝트"
 ```
 
 ---
@@ -111,25 +111,25 @@ gcalcli add --calendar "캘린더명" \
 
 **예시**:
 ```bash
-# 커피챗 일정 (1시간)
+# 미팅 일정 (1시간)
 gcalcli add --calendar "Work" \
   --when "2025-11-13 13:00" \
   --duration 60 \
-  --title "알파브라더스 채중규 대표 커피챗" \
-  --where "가양역, 강서구 공항대로 45길 71 3층" \
-  --description "알파브라더스 채중규 대표님과 커피챗"
+  --title "파트너사 대표 미팅" \
+  --where "서울 강남구 역삼동" \
+  --description "파트너사 대표님과 협업 미팅"
 
-# 강의 일정 (2.5시간)
-gcalcli add --calendar "AI" \
+# 워크숍 일정 (2.5시간)
+gcalcli add --calendar "Work" \
   --when "2025-12-06 14:30" \
   --duration 150 \
-  --title "HFK 겨울시즌 1회차: AI 파트너 만들기"
+  --title "AI 워크숍 1회차"
 
-# 미팅 일정 (1.5시간)
+# 프로젝트 미팅 (1.5시간)
 gcalcli add --calendar "Work" \
   --when "2025-12-10 10:00" \
   --duration 90 \
-  --title "강릉 프로젝트 2차 미팅" \
+  --title "신규 프로젝트 2차 미팅" \
   --where "zoom"
 ```
 
@@ -143,8 +143,8 @@ gcalcli add --calendar "Work" \
 # 대화형 편집
 gcalcli edit "검색어"
 
-# 예시: "강릉" 포함된 일정 수정
-gcalcli edit "강릉"
+# 예시: "프로젝트" 포함된 일정 수정
+gcalcli edit "프로젝트"
 ```
 
 **⚠️ 제약**: 대화형 프롬프트로 Claude Code 환경에서 제한적
@@ -181,10 +181,10 @@ gcalcli delete "검색어" --calendar "Work" --iamaexpert
 **예시**:
 ```bash
 # 잘못 생성한 일정 삭제
-gcalcli delete "2025-11-13 알파브라더스" --iamaexpert
+gcalcli delete "2025-11-13 파트너 미팅" --iamaexpert
 
 # 특정 일정만 삭제
-gcalcli delete "알파브라더스 커피챗" --calendar "Work" --iamaexpert
+gcalcli delete "파트너사 미팅" --calendar "Work" --iamaexpert
 ```
 
 **⚠️ 주의**: `--iamaexpert` 옵션은 확인 없이 즉시 삭제하므로 신중히 사용
@@ -198,7 +198,7 @@ gcalcli delete "알파브라더스 커피챗" --calendar "Work" --iamaexpert
 Daily Note 생성 시 Google Calendar 일정을 자동으로 가져옵니다.
 
 **동작 방식**:
-1. `gcalcli agenda --calendar "Work" --calendar "개인+가족용" --tsv` 실행
+1. `gcalcli agenda --tsv` 실행 (또는 특정 캘린더 지정)
 2. TSV 출력을 파싱하여 Markdown 리스트로 변환
 3. Daily Note 템플릿의 `{{calendar_events}}` placeholder에 삽입
 
@@ -207,10 +207,10 @@ Daily Note 생성 시 Google Calendar 일정을 자동으로 가져옵니다.
 ### 📅 스케줄
 
 #### Google Calendar (일정)
-- **13:00-14:00**: 알파브라더스 채중규 대표 커피챗
-- **14:30-17:00**: HFK 1회차 강의
+- **13:00-14:00**: 파트너사 미팅
+- **14:30-17:00**: AI 워크숍 1회차
 
-#### 💰 알림 (대출/카드)
+#### 알림
 일정이 없습니다.
 ```
 
@@ -232,10 +232,11 @@ gcalcli calm
 ## 💡 캘린더 종류
 
 ### 사용 가능한 캘린더
-1. **Work**: 업무 일정 (미팅, 강의, 프로젝트)
-2. **AI**: AI 교육 관련 (인사이터, HFK, 강의)
-3. **개인+가족용**: 개인 및 가족 일정
-4. **Money**: 금융 알림 (대출, 카드 결제)
+gcalcli list 명령어로 사용 가능한 캘린더를 확인하세요.
+
+예시:
+1. **Work**: 업무 일정
+2. **Personal**: 개인 일정
 
 ### 캘린더 목록 확인
 ```bash
@@ -248,7 +249,7 @@ gcalcli list
 gcalcli agenda --calendar "Work"
 
 # 여러 캘린더
-gcalcli agenda --calendar "Work" --calendar "AI"
+gcalcli agenda --calendar "Work" --calendar "Personal"
 ```
 
 ---
@@ -305,13 +306,13 @@ gcalcli delete "검색어" --iamaexpert
 **해결**:
 ```bash
 # 1. 잘못된 일정 삭제
-gcalcli delete "2025-11-13 13:00 커피챗" --iamaexpert
+gcalcli delete "2025-11-13 13:00 미팅" --iamaexpert
 
 # 2. 올바른 제목으로 재생성
 gcalcli add --calendar "Work" \
   --when "2025-11-13 13:00" \
   --duration 60 \
-  --title "알파브라더스 커피챗"
+  --title "파트너사 미팅"
 ```
 
 ---

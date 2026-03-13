@@ -1,6 +1,6 @@
 # Setup Workspace - 초기 설정 마법사
 
-IMI Workspace를 처음 사용할 때 실행하는 대화형 설정 도구입니다.
+Do Better Workspace를 처음 사용할 때 실행하는 대화형 설정 도구입니다.
 **CLAUDE.md를 자동으로 생성**하여 Claude가 프로젝트 맥락을 이해할 수 있게 합니다.
 
 ---
@@ -12,7 +12,7 @@ IMI Workspace를 처음 사용할 때 실행하는 대화형 설정 도구입니
 다음 메시지로 시작:
 
 ```
-안녕하세요! IMI Workspace 초기 설정을 시작합니다.
+안녕하세요! Do Better Workspace 초기 설정을 시작합니다.
 
 몇 가지 질문을 통해 CLAUDE.md 파일을 자동 생성해드릴게요.
 이 파일은 Claude가 당신의 프로젝트 맥락을 이해하는 핵심 파일입니다.
@@ -33,7 +33,7 @@ IMI Workspace를 처음 사용할 때 실행하는 대화형 설정 도구입니
 
 #### Q2. 역할/직업
 ```
-어떤 일을 하고 계세요? (예: 마케터, 카페 운영자, 프리랜서, 학생 등)
+어떤 일을 하고 계세요? (예: 마케터, 사업 운영자, 프리랜서, 학생 등)
 ```
 
 #### Q3. 주요 관심사
@@ -51,7 +51,7 @@ IMI Workspace를 처음 사용할 때 실행하는 대화형 설정 도구입니
 
 ### Step 3: CLAUDE.md 자동 생성
 
-수집한 정보로 `/Users/rhim/Projects/imi-workspace/CLAUDE.md` 파일을 생성합니다.
+수집한 정보로 워크스페이스 루트의 `CLAUDE.md` 파일을 생성합니다.
 
 **생성할 CLAUDE.md 템플릿:**
 

@@ -52,9 +52,9 @@ allowed-tools: Read, Write, Bash, Grep, Glob
    - "모름" 또는 "inbox" → `./00-inbox/`
 
 **경로 자동 유추 (파일명 기반)**:
-- "인사이터" → `./10-projects/12-education/12.04-insighter/`
-- "gangneung" → `./10-projects/11-consulting/`
-- "hfk" → `./10-projects/12-education/12.03-hfk/`
+- "workshop" → `./10-projects/12-education/workshop/`
+- "consulting" → `./10-projects/11-consulting/`
+- "course" → `./10-projects/12-education/course/`
 
 ### Phase 3: 파일 읽기 및 구조 파악
 
@@ -136,22 +136,22 @@ allowed-tools: Read, Write, Bash, Grep, Glob
 
 ### 예시 1: 강의 녹음 정리
 ```
-사용자: "/Users/rhim/Downloads/인사이터 3주차_original.txt 이거 강의 정리해줘"
+사용자: "~/Downloads/AI-워크숍-3주차.txt 이거 강의 정리해줘"
 
 Claude:
 1. 파일 확인 → UTF-16 감지 → UTF-8 변환
 2. 질문:
    - 유형: 강의
    - 날짜: 2025-10-31
-   - 주제: Claude Code 설치 실습
-   - 저장 위치: (파일명에서 "인사이터" 감지) → ./10-projects/12-education/12.04-insighter/week-03/
+   - 주제: AI 도구 활용 실습
+   - 저장 위치: ./10-projects/12-education/workshop/week-03/
 3. 내용 분석 → 강의 템플릿 적용
-4. 문서 생성: 2025-10-31_Claude-Code-설치-실습.md
+4. 문서 생성: 2025-10-31_AI-도구-활용-실습.md
 ```
 
 ### 예시 2: 미팅록 정리
 ```
-사용자: "강릉 프로젝트 미팅 녹음 정리해줘"
+사용자: "신규 프로젝트 미팅 녹음 정리해줘"
 
 Claude:
 1. 파일 경로 요청

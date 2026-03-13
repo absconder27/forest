@@ -11,7 +11,7 @@
 Google Calendar를 Claude와 통합하여 대화만으로 일정 관리:
 - "오늘 일정 뭐 있어?"
 - "이번 주 스케줄 알려줘"
-- "강릉 관련 일정 찾아줘"
+- "프로젝트 관련 일정 찾아줘"
 - "내일 오후 3시 미팅 잡아줘"
 
 **설정 방법**: [google-calendar/SETUP_GUIDE.md](./google-calendar/SETUP_GUIDE.md) (5분 소요)

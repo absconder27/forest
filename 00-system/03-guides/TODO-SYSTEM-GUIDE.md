@@ -8,9 +8,9 @@
 
 ### 1. Todo 추가하기
 ```bash
-/todo 서수현님 급여 차액 확인
-/todo [urgent] 노무사 퇴직금 문의
-/todo [gpters] 19기 결과 확인
+/todo 클라이언트 보고서 마감 확인
+/todo [urgent] 외부 업체 견적 확인
+/todo [my-project] 19기 결과 확인
 ```
 
 ### 2. Todo 확인하기
@@ -69,9 +69,9 @@ pkm/40-personal/43-todos/
 
 ### 시나리오 1: 작업 중 Todo 생각남
 ```
-GPTers 프로젝트 작업 중
-→ "아 급여 처리 해야지"
-→ /todo 서수현님 급여 차액 확인
+마케팅 프로젝트 작업 중
+→ "아 보고서 마감 확인해야지"
+→ /todo 클라이언트 보고서 마감 확인
 → ✅ 2초 만에 저장 완료
 → 계속 작업
 ```
@@ -91,8 +91,8 @@ GPTers 프로젝트 작업 중
 ### 시나리오 3: 프로젝트별 정리
 ```
 /todos project
-→ cafe-operations 관련 4개 발견
-→ 매장 순회할 때 한 번에 처리 계획
+→ operations 관련 4개 발견
+→ 현장 방문할 때 한 번에 처리 계획
 ```
 
 ---
@@ -103,20 +103,20 @@ GPTers 프로젝트 작업 중
 
 ```bash
 # 기본
-/todo 매장 CCTV 점검
+/todo 사무실 장비 점검
 
 # 우선순위 지정
-/todo [urgent] 세무사 자료 제출
-/todo [high] GPTers 커리큘럼 작성
+/todo [urgent] 회계 자료 제출
+/todo [high] 온라인 커리큘럼 작성
 /todo [low] 인테리어 아이디어 수집
 
 # 프로젝트 지정
-/todo [cafe] 인사동 매장 의자 수리
-/todo [gpters] 스터디 템플릿 업데이트
-/todo [archimedes] 3주차 강의 자료
+/todo [ops] 회의실 프로젝터 수리
+/todo [my-project] 스터디 템플릿 업데이트
+/todo [online-course] 3주차 강의 자료
 
 # 복합
-/todo [urgent] [cafe] 동교동 에어컨 수리
+/todo [urgent] [ops] 서버실 에어컨 수리
 ```
 
 ### Todo 조회 (다양한 뷰)
@@ -134,14 +134,14 @@ GPTers 프로젝트 작업 중
 
 # 프로젝트별 그룹화
 /todos project
-→ cafe-operations (4개)
-→ gpters (3개)
-→ archimedes (2개)
+→ operations (4개)
+→ my-project (3개)
+→ online-course (2개)
 
 # 오래된 것들
 /todos overdue
-→ 14일 지남: CCTV 업그레이드
-→ 10일 지남: 세무사 자료 정리
+→ 14일 지남: 장비 업그레이드
+→ 10일 지남: 회계 자료 정리
 
 # 통계
 /todos stats
@@ -158,7 +158,7 @@ GPTers 프로젝트 작업 중
 
 ```markdown
 ### 📊 어제 진행 상황
-- gpters: 제안서 작성 완료
+- my-project: 제안서 작성 완료
 - pkm: Vault 최적화 완료
 
 ### 📋 Todo 상태 체크
@@ -167,9 +167,9 @@ GPTers 프로젝트 작업 중
 - **지연 중**: 2개 (⚠️ 1주일 이상)
 
 **오늘 처리 제안:**
-1. 서수현님 급여 차액 확인 (high priority)
-2. GPTers 19기 결과 확인 (high priority)
-3. CCTV 업그레이드 견적 (14일 지남)
+1. 클라이언트 보고서 마감 확인 (high priority)
+2. 프로젝트 중간 점검 (high priority)
+3. 장비 업그레이드 견적 (14일 지남)
 
 ### 🎯 오늘 우선순위 제안
 1. Todo 처리 (3개 제안됨) ← NEW!
@@ -177,8 +177,8 @@ GPTers 프로젝트 작업 중
 3. 장기 프로젝트 체크
 
 ### 💡 인사이트
-- cafe-operations 관련 Todo 4개 → 매장 순회 시 한 번에 처리
-- 2주 동안 업데이트 없는 프로젝트: archimedes-bath-lecture
+- operations 관련 Todo 4개 → 현장 방문 시 한 번에 처리
+- 2주 동안 업데이트 없는 프로젝트: online-course-bath-lecture
 ```
 
 ---
@@ -191,11 +191,11 @@ GPTers 프로젝트 작업 중
 
 ```markdown
 ## 📥 Inbox (처리 안 한 것들)
-- [ ] 서수현님 급여 차액 확인
+- [ ] 클라이언트 보고서 마감 확인
   - added: 2025-10-11 15:23
-  - context: gpters-ai-branding-study/README.md
+  - context: my-project-ai-branding-study/README.md
   - priority: high
-  - project: cafe
+  - project: operations
 
 ## 🎯 Today (오늘 할 일)
 ← 매일 아침 여기로 이동
@@ -219,15 +219,15 @@ GPTers 프로젝트 작업 중
 ```
 "이 Todo를 왜 추가했지?"
 → context 필드 확인
-→ gpters-ai-branding-study/README.md
+→ my-project-ai-branding-study/README.md
 → 아 맞다, 그때 작업하다가 생각났지!
 ```
 
 ### 2. 프로젝트 묶음 처리
 ```
 /todos project
-→ cafe-operations 관련 4개 발견
-→ 매장 순회할 때 한 번에 처리하면 효율적
+→ operations 관련 4개 발견
+→ 현장 방문할 때 한 번에 처리하면 효율적
 ```
 
 ### 3. 우선순위 관리
@@ -259,7 +259,7 @@ GPTers 프로젝트 작업 중
 ### Week 1: 우선순위 추가
 ```bash
 /todo [urgent] [내용]
-/todo [gpters] [내용]
+/todo [my-project] [내용]
 ```
 
 ### Week 2: Daily Review 습관화
@@ -300,7 +300,7 @@ n8n Workflow:
 
 ### 2. 반복 작업 시스템
 ```markdown
-- [ ] 급여 처리
+- [ ] 월간 정산 처리
   - recurring: monthly
   - next: 2025-11-10
 ```
