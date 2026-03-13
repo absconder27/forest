@@ -5,8 +5,6 @@
 ## 초기 설정
 
 - `/setup-workspace` - 워크스페이스 초기 설정
-- `/setup-google-calendar` - Google Calendar 연결 (자동 설치 + OAuth)
-- `/setup-web-crawler` - Web Crawler + OCR 연결 (자동 설치 + API 키)
 
 ## Daily Workflow
 

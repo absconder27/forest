@@ -2,45 +2,11 @@
 
 > Claude Code와 외부 서비스를 통합하는 기능 모음
 
-## 🎯 사용 가능한 Skills
+## 사용 가능한 Skills
 
-### ✅ Google Calendar (gcalcli 기반)
+### Web Crawler + OCR (Firecrawl + Gemini)
 
-**상태**: 설정 가이드 완료 ✨
-
-Google Calendar를 Claude와 통합하여 대화만으로 일정 관리:
-- "오늘 일정 뭐 있어?"
-- "이번 주 스케줄 알려줘"
-- "프로젝트 관련 일정 찾아줘"
-- "내일 오후 3시 미팅 잡아줘"
-
-**설정 방법**: [google-calendar/SETUP_GUIDE.md](./google-calendar/SETUP_GUIDE.md) (5분 소요)
-
-**특징**:
-- ✅ gcalcli 기반 (빠르고 안정적)
-- ✅ OAuth 인증 (Google Cloud Console 불필요)
-- ✅ Python 스크립트 포함 (커스터마이징 가능)
-- ✅ Daily Note 자동 통합
-
-**시작하기**:
-```bash
-# 1. gcalcli 설치
-pipx install gcalcli
-
-# 2. OAuth 인증
-gcalcli init
-
-# 3. Claude와 대화
-"오늘 일정 알려줘"
-```
-
-자세한 내용: [google-calendar/README.md](./google-calendar/README.md)
-
----
-
-### ✅ Web Crawler + OCR (Firecrawl + Gemini)
-
-**상태**: 설정 가이드 완료 ✨
+**상태**: 설정 가이드 완료
 
 웹페이지 크롤링 + 이미지 OCR을 자동으로 처리:
 - "https://competitor-cafe.com 분석해줘"
@@ -51,17 +17,14 @@ gcalcli init
 **설정 방법**: [web-crawler-ocr/SETUP_GUIDE.md](./web-crawler-ocr/SETUP_GUIDE.md) (10분 소요)
 
 **특징**:
-- ✅ Firecrawl로 깨끗한 텍스트 추출 (광고/잡음 제거)
-- ✅ Gemini OCR로 대용량 이미지 처리 (20MB, Claude 5MB 제한 우회)
-- ✅ 완전한 마크다운 생성 (텍스트 + 이미지 분석)
-- ✅ URL 자동 감지 및 실행
+- Firecrawl로 깨끗한 텍스트 추출 (광고/잡음 제거)
+- Gemini OCR로 대용량 이미지 처리 (20MB, Claude 5MB 제한 우회)
+- 완전한 마크다운 생성 (텍스트 + 이미지 분석)
+- URL 자동 감지 및 실행
 
 **시작하기**:
 ```bash
-# 1. 자동 설정 (권장)
-Claude Code에서: /setup-web-crawler
-
-# 2. 수동 설정
+# 1. 수동 설정
 cd skills/web-crawler-ocr/scripts
 python3 -m venv venv
 source venv/bin/activate
@@ -77,9 +40,29 @@ FIRECRAWL_API_KEY=your_firecrawl_key
 
 자세한 내용: [web-crawler-ocr/README.md](./web-crawler-ocr/README.md)
 
+### Transcript Organizer
+
+녹음 텍스트 파일(강의, 미팅, 인터뷰)을 자동으로 분석 및 구조화:
+- "강의 정리해줘", "미팅록 정리", "인터뷰 정리"
+- 인코딩 자동 감지(UTF-16 -> UTF-8), STT 오인식 교정
+- 유형별 템플릿 적용 (강의/미팅/인터뷰)
+
+### Dashboard PRD Generator
+
+대시보드 PRD를 대화형으로 생성:
+- "대시보드 PRD", "대시보드 기획"
+- 결정 우선(Decision-First) 원칙 기반 설계
+- 4단계 대화형 프로세스 (의사결정 -> 데이터 -> 화면 -> 기술)
+
+### Excel to CSV Converter
+
+Excel 파일을 Claude Code에서 분석 가능한 CSV로 변환:
+- "엑셀 변환", "xlsx 변환", .xlsx 파일 경로 제공 시 자동 실행
+- 멀티 시트 지원, EUC-KR 인코딩 변환
+
 ---
 
-## 📖 Skills란?
+## Skills란?
 
 Skills는 Claude Code를 외부 서비스와 연결하여 확장하는 기능입니다.
 
@@ -88,27 +71,25 @@ Skills는 Claude Code를 외부 서비스와 연결하여 확장하는 기능입
 | 구분 | Skills | Commands |
 |------|--------|----------|
 | **목적** | 외부 서비스 통합 | 내부 워크플로우 자동화 |
-| **예시** | Google Calendar, Web Crawler | `/daily-note`, `/setup-workspace` |
+| **예시** | Web Crawler, Notion | `/daily-note`, `/setup-workspace` |
 | **위치** | `skills/` | `.claude/commands/` |
 | **설정** | OAuth, API 키 필요 | 설정 불필요 (즉시 사용) |
 
 ---
 
-## 🔮 추가 가능한 Skills 예시
+## 추가 가능한 Skills 예시
 
 **생산성:**
 - **Notion** - Notion 페이지 생성/조회
 - **Todoist** - 할 일 관리
-- **Trello** - 보드 및 카드 관리
+- **Google Calendar** - 일정 관리
 
 **커뮤니케이션:**
 - **Slack** - 메시지 전송/채널 조회
 - **Discord** - 봇 통합
-- **Telegram** - 메시지 전송
 
 **개발:**
 - **GitHub** - 이슈/PR 관리
-- **GitLab** - CI/CD 통합
 
 **데이터:**
 - **Airtable** - 데이터베이스 조회/수정
@@ -116,7 +97,7 @@ Skills는 Claude Code를 외부 서비스와 연결하여 확장하는 기능입
 
 ---
 
-## 🛠 커스텀 Skills 추가
+## 커스텀 Skills 추가
 
 자신만의 스킬을 추가하려면:
 
@@ -154,61 +135,39 @@ allowed-tools: Bash, Read
 ```
 
 ### 참고 자료
-- **예시**: [google-calendar/](./google-calendar/) 폴더 구조 참고
+- **예시**: [web-crawler-ocr/](./web-crawler-ocr/) 폴더 구조 참고
 - **공식 문서**: [Claude Code Skills 가이드](https://docs.claude.com)
 
 ---
 
-## 💡 Skills 사용 팁
+## Skills 사용 팁
 
 ### 자동 트리거
 
 Skills는 대화 중 키워드를 감지하면 자동으로 실행됩니다:
 ```
-사용자: "오늘 일정 뭐 있어?"
-→ google-calendar skill 자동 실행
+사용자: "이 URL 분석해줘"
+-> web-crawler-ocr skill 자동 실행
 ```
 
 ### 명시적 호출
 
 특정 skill을 명시적으로 호출할 수도 있습니다:
 ```
-사용자: "google-calendar skill로 이번 주 일정 조회해줘"
+사용자: "web-crawler-ocr skill로 이 페이지 크롤링해줘"
 ```
 
 ### PKM 통합
 
-Skills를 `/daily-note`, `/weekly-review` 등의 commands와 결합하여 자동화:
-```markdown
-## Daily Note Template
-
-### 📅 스케줄
-{{calendar_events}}  ← google-calendar skill이 자동으로 채움
-```
+Skills를 `/daily-note`, `/weekly-review` 등의 commands와 결합하여 자동화할 수 있습니다.
 
 ---
 
-## ⚠️ 선택적 기능
+## 선택적 기능
 
 Skills는 **선택적**입니다. 필요한 기능만 설정하세요.
 
-- ✅ **google-calendar**: 일정 관리가 중요한 경우
-- ✅ **web-crawler-ocr**: 웹 리서치, 경쟁사 분석이 필요한 경우
-- 🔜 **기타 skills**: 필요에 따라 추가
-
----
-
-## 🎉 기여하기
-
-새로운 skill을 만들었다면 공유해주세요!
-
-1. `skills/your-skill/` 폴더 생성
-2. SETUP_GUIDE.md 작성 (상세한 설정 방법)
-3. SKILL.md 작성 (트리거 및 사용법)
-4. README.md 작성 (개요 및 빠른 시작)
-
-**좋은 Skill의 조건:**
-- ✅ 상세한 설정 가이드 (초보자도 따라할 수 있게)
-- ✅ 명확한 트리거 키워드 (자동 실행 조건)
-- ✅ 실용적인 사용 예시
-- ✅ 트러블슈팅 섹션
+- **web-crawler-ocr**: 웹 리서치, 경쟁사 분석이 필요한 경우
+- **transcript-organizer**: 녹음 파일 구조화가 필요한 경우
+- **dashboard-prd**: 대시보드 기획이 필요한 경우
+- **excel-to-csv**: Excel 데이터 분석이 필요한 경우

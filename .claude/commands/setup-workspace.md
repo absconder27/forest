@@ -87,9 +87,6 @@ Do Better Workspace를 처음 사용할 때 실행하는 대화형 설정 도구
 |--------|------|
 | `/daily-note` | 오늘 Daily Note 생성 |
 | `/thinking-partner` | 생각 정리 파트너 |
-| `/gather` | 정보 수집 모드 |
-| `/reframe` | 이해 확인 모드 |
-| `/truth` | 사실 기반 분석 모드 |
 | `/todo`, `/todos` | 할 일 관리 |
 
 ## 작업 규칙

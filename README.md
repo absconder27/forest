@@ -44,9 +44,6 @@ VS Code 또는 터미널에서 Claude Code 실행
 |--------|------|
 | `/daily-note` | 오늘의 Daily Note 생성 |
 | `/thinking-partner` | 생각 정리 파트너 |
-| `/gather` | 정보 수집 모드 |
-| `/reframe` | 이해 확인 모드 |
-| `/truth` | 사실 기반 분석 모드 |
 | `/todos` | 할 일 관리 |
 
 ## Philosophy
@@ -245,7 +242,6 @@ do-better-workspace/
 
 ### 초기 설정
 - `/setup-workspace` - **대화형 CLAUDE.md 자동 생성** + 초기 설정
-- `/setup-google-calendar` - Google Calendar 통합 설정
 
 ### Daily Workflow
 - `/daily-note` - 오늘 날짜의 Daily Note 생성/열기
@@ -255,11 +251,6 @@ do-better-workspace/
 ### Thinking & Ideas
 - `/thinking-partner` - 생각 정리 파트너 (소크라테스식 질문)
 - `/idea` - 대화에서 아이디어 추출 및 저장
-
-### Orchestration Commands
-- `/gather` - 정보 수집 모드 (구조화된 질문 생성)
-- `/reframe` - 이해 확인 모드 (대화 요약 및 확인)
-- `/truth` - 사실 기반 분석 모드 (객관적 분석)
 
 ### 시스템
 - `/create-command` - 커스텀 명령어 생성

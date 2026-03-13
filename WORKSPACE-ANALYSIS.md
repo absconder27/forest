@@ -24,8 +24,8 @@
 do-better-workspace/
 ├── .claude/              # Claude Code 확장 기능
 │   ├── commands/         # 슬래시 커맨드 (13개)
-│   ├── agents/           # 서브에이전트 (3개)
-│   └── skills/           # 스킬스 (4개)
+│   ├── agents/           # 서브에이전트 (1개)
+│   └── skills/           # 스킬스 (2개)
 ├── 00-inbox/             # 빠른 캡처 공간
 ├── 00-system/            # 시스템 설정 및 템플릿
 │   ├── 01-templates/     # 재사용 템플릿 (4개)
@@ -48,18 +48,17 @@ do-better-workspace/
 
 ---
 
-## 3. Slash Commands (13개)
+## 3. Slash Commands
 
 ### 초기 설정
 | 커맨드 | 설명 |
 |--------|------|
 | `/setup-workspace` | 대화형 CLAUDE.md 자동 생성 + 초기 설정 |
-| `/setup-google-calendar` | Google Calendar 연결 (OAuth) |
 
 ### Daily Workflow
 | 커맨드 | 설명 |
 |--------|------|
-| `/daily-note` | 오늘 Daily Note 생성/열기 (Google Calendar 자동 통합) |
+| `/daily-note` | 오늘 Daily Note 생성/열기 |
 | `/daily-review` | 어제/오늘 변경사항 분석 |
 
 ### 지식 관리
@@ -69,13 +68,10 @@ do-better-workspace/
 | `/todo` | 할 일 추가 |
 | `/todos [today/project/overdue/stats]` | 할 일 목록 조회/관리 |
 
-### AI 활용 (Orchestration)
+### AI 활용
 | 커맨드 | 설명 |
 |--------|------|
 | `/thinking-partner` | AI와 대화하며 생각 발전 (소크라테스식 질문) |
-| `/gather` | 정보 수집 모드 (구조화된 질문 생성) |
-| `/reframe` | 이해 확인 모드 (대화 요약 및 확인) |
-| `/truth` | 사실 기반 분석 모드 (객관적 분석) |
 
 ### 시스템
 | 커맨드 | 설명 |
@@ -84,33 +80,9 @@ do-better-workspace/
 
 ---
 
-## 4. Skills (4개)
+## 4. Skills (2개)
 
-### 4.1 Google Calendar
-**파일**: `.claude/skills/google-calendar/`
-
-**기능**:
-- gcalcli 기반 Google Calendar 통합
-- 일정 조회, 검색, 등록, 수정, 삭제
-- Daily Note 자동 통합
-
-**트리거 키워드**: "일정", "스케줄", "캘린더"
-
----
-
-### 4.2 Competitor Review Analyzer
-**파일**: `.claude/skills/competitor-review-analyzer/`
-
-**기능**:
-- 다나와 상품 리뷰 크롤링
-- AI 분석 (긍정/부정/키워드)
-- 인사이트 도출 -> 액션 아이템 제안
-
-**트리거 키워드**: "경쟁사 분석", "리뷰 분석", "다나와 리뷰"
-
----
-
-### 4.3 Notion Handler
+### 4.1 Notion Handler
 **파일**: `.claude/skills/notion-handler/`
 
 **기능**:
@@ -121,7 +93,7 @@ do-better-workspace/
 
 ---
 
-### 4.4 Transcript Organizer
+### 4.2 Transcript Organizer
 **파일**: `.claude/skills/transcript-organizer/`
 
 **기능**:
@@ -130,7 +102,7 @@ do-better-workspace/
 
 ---
 
-## 5. Agents (서브에이전트, 3개)
+## 5. Agents (서브에이전트, 1개)
 
 ### 5.1 Zettelkasten Linker
 **파일**: `.claude/agents/zettelkasten-linker.md`
@@ -144,35 +116,11 @@ do-better-workspace/
 
 ---
 
-### 5.2 Cafe Launch PM
-**파일**: `.claude/agents/cafe-launch-pm.md`
-
-**역할**: 카페 브랜드 론칭 프로젝트 관리
-
-**기능**:
-- 프로젝트 계획 및 타임라인 관리
-- 팀 코디네이션
-- 리스크 평가 및 마일스톤 추적
-
----
-
-### 5.3 YouTube Content Analyzer
-**파일**: `.claude/agents/youtube-content-analyzer.md`
-
-**역할**: YouTube 영상 콘텐츠 분석
-
-**기능**:
-- 메타데이터 및 트랜스크립트 추출
-- 핵심 인사이트 분석
-- 콘텐츠 변환 워크플로우 지원
-
----
-
 ## 6. Templates (4개)
 
 | 템플릿 | 용도 |
 |--------|------|
-| `daily-note-template.md` | 매일 작성하는 노트 (Google Calendar 자동 통합) |
+| `daily-note-template.md` | 매일 작성하는 노트 |
 | `weekly-review-template.md` | 주간 회고 |
 | `Project Template.md` | 새 프로젝트 시작 |
 | `Daily Note Template.md` | (레거시) |
@@ -228,16 +176,13 @@ do-better-workspace/
                               v
 ┌─────────────────────────────────────────────────────────────┐
 │                    DAILY WORKFLOW                           │
-│  /daily-note -> Google Calendar Skill -> Daily Note 생성    │
+│  /daily-note -> Daily Note 생성                             │
 │  /daily-review -> 변경사항 분석 -> 우선순위 제안             │
 └─────────────────────────────────────────────────────────────┘
                               │
                               v
 ┌─────────────────────────────────────────────────────────────┐
-│                ORCHESTRATION COMMANDS                       │
-│  /gather -> 정보 수집 (구조화된 질문)                        │
-│  /reframe -> 이해 확인 (대화 요약)                          │
-│  /truth -> 사실 기반 분석 (객관적 평가)                      │
+│                AI 활용                                      │
 │  /thinking-partner -> 소크라테스식 대화                      │
 └─────────────────────────────────────────────────────────────┘
                               │
@@ -266,8 +211,6 @@ cd do-better-workspace
 # 3. 초기 설정 (대화형 CLAUDE.md 자동 생성)
 /setup-workspace
 
-# 4. (선택) Google Calendar 연결
-/setup-google-calendar
 ```
 
 ### 매일 사용
@@ -280,9 +223,6 @@ cd do-better-workspace
 ### 생각 정리가 필요할 때
 ```bash
 /thinking-partner    # 소크라테스식 대화
-/gather              # 정보 수집
-/reframe             # 이해 확인
-/truth               # 사실 기반 분석
 ```
 
 ---
@@ -292,7 +232,6 @@ cd do-better-workspace
 | 구성요소 | 기술 |
 |----------|------|
 | PKM 구조 | Johnny Decimal 시스템 |
-| 캘린더 | gcalcli (OAuth) |
 | AI 에이전트 | Claude Code Subagents |
 | 버전 관리 | Git |
 
@@ -303,7 +242,7 @@ cd do-better-workspace
 | 구분 | Skills | Commands | Agents |
 |------|--------|----------|--------|
 | **목적** | 외부 서비스 통합 | 내부 워크플로우 자동화 | 복잡한 다단계 작업 |
-| **예시** | Google Calendar, Notion | `/daily-note`, `/todos` | Zettelkasten Linker |
+| **예시** | Web Crawler, Notion | `/daily-note`, `/todos` | Zettelkasten Linker |
 | **위치** | `.claude/skills/` | `.claude/commands/` | `.claude/agents/` |
 | **설정** | OAuth, API 키 필요 | 설정 불필요 (즉시 사용) | 설정 불필요 |
 | **호출** | 키워드 자동 감지 | `/command` 형식 | 자연어 요청 |
@@ -315,8 +254,8 @@ cd do-better-workspace
 1. **비개발자 친화적**: CLI 환경이지만 자연어로 대화하며 사용
 2. **대화형 설정**: `/setup-workspace`로 CLAUDE.md 자동 생성
 3. **체계적 구조**: Johnny Decimal로 AI가 이해하기 쉬운 폴더 구조
-4. **Orchestration Commands**: gather, reframe, truth로 체계적 사고
-5. **Daily Workflow 자동화**: 캘린더, Todo, 리뷰가 유기적으로 연결
+4. **AI 활용**: thinking-partner로 체계적 사고
+5. **Daily Workflow 자동화**: Todo, 리뷰가 유기적으로 연결
 6. **확장 가능**: Skills, Commands, Agents로 기능 확장 용이
 
 ---
