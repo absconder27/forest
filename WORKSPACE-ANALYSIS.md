@@ -1,11 +1,11 @@
-# IMI Workspace 분석 문서
+# Do Better Workspace 분석 문서
 
 > 작성일: 2025-12-29
 > 용도: 워크스페이스 구조 및 기능 설명 (교육용)
 
 ## 1. 개요
 
-**imi-workspace**는 비개발자를 위한 AI 작업 환경으로, Claude Code와 Johnny Decimal 시스템을 결합한 실전 PKM(Personal Knowledge Management) 워크스페이스입니다.
+**do-better-workspace**는 비개발자를 위한 AI 작업 환경으로, Claude Code와 Johnny Decimal 시스템을 결합한 실전 PKM(Personal Knowledge Management) 워크스페이스입니다.
 
 **용도**: Claude Code + PKM 시스템 교육용으로 제작
 
@@ -21,7 +21,7 @@
 ## 2. 폴더 구조 (Johnny Decimal 시스템)
 
 ```
-imi-workspace/
+do-better-workspace/
 ├── .claude/              # Claude Code 확장 기능
 │   ├── commands/         # 슬래시 커맨드 (13개)
 │   ├── agents/           # 서브에이전트 (3개)
@@ -181,34 +181,35 @@ imi-workspace/
 
 ## 7. 샘플 데이터 (교육용)
 
-`50-resources/sample-data/` 폴더에 **오피스원 주식회사** 시나리오 기반의 교육용 데이터 포함
+`50-resources/sample-data/` 폴더에 **뉴믹스커피** 시나리오 기반의 교육용 데이터 포함
 
-### 가상 회사 설정
-- **회사명**: 오피스원 주식회사 (OfficeOne Inc.)
-- **업종**: B2B 사무용품/사무환경 솔루션
-- **규모**: 직원 약 50명, 연매출 약 50억원
-- **상황**: 2025년 2분기 종료, 경영 회의 준비
+### 브랜드 설정
+- **브랜드명**: 뉴믹스커피 (Newmix Coffee) by 그란데클립코리아
+- **창업자**: 김봉진 의장 (배달의민족 창업자)
+- **콘셉트**: 한국 믹스커피를 문화 콘텐츠로 재정의, 인바운드 관광객 기념품 포지셔닝
+- **매장**: 성수점, 북촌점
+- **상황**: 2026년 2월 마감, 3월 벚꽃 시즌 전략 미팅 준비
 
 ### 데이터셋 현황
 
-| 파일명 | 설명 | 레코드 수 | 주요 컬럼 |
-|--------|------|-----------|-----------|
-| `sample_sales_data.csv` | 2분기 판매 실적 | 117건 | 날짜, 제품, 고객사, 지역, 수량, 매출, 영업담당 |
-| `customer_data.csv` | 고객사 정보 | 50개사 | 회사명, 업종, 지역, 누적매출, 고객상태 |
-| `employee_survey_data.csv` | 직원 만족도 설문 | 50명 | 부서, 직급, 만족도 항목별 점수, 근무형태선호 |
-| `inventory_data.csv` | 재고 현황 | 40품목 | 제품명, 카테고리, 현재고, 재고상태, 공급업체 |
-| `marketing_campaign_data.csv` | 마케팅 캠페인 | 24건 | 캠페인명, 채널, 예산, 매출, ROI |
+| 파일명 | 설명 | 행 수 | 주요 컬럼 |
+|--------|------|-------|-----------|
+| `newmix_sales_seongsu_2602.csv` | 2월 성수 매장 매출 | 4,231 (1,957주문) | 날짜, 시간, 카테고리, 상품명, 수량, 단가, 합계, 결제수단, 고객국적 |
+| `newmix_sales_seongsu_2601.csv` | 1월 성수 매장 매출 | 3,085 (1,534주문) | 동일 |
+| `newmix_sales_bukchon_2602.csv` | 2월 북촌 매장 매출 | 3,139 (1,406주문) | 동일 |
+| `newmix_online_sales_2602.csv` | 2월 온라인 매출 | 1,399 (814주문) | 주문일, 채널, 카테고리, 상품명, 수량, 단가, 합계, 배송지역, 주문상태 |
+| `newmix_inventory_data.csv` | 전체 재고 현황 | 40품목 | 분류, 상품명, 발주처, 주차별판매, 총재고, 일판매량, 재고일수 |
 
 ### 실습 미션 (6개)
 
 | 미션 | 데이터 | 분석 목표 |
 |------|--------|-----------|
-| 미션 1 | 판매 데이터 | 월별/지역별 매출 추이, 영업담당 실적 |
-| 미션 2 | 고객 데이터 | VIP 고객 식별, 비활성 고객 분석 |
-| 미션 3 | 마케팅 데이터 | 채널별 ROI 비교, 예산 재배분 제안 |
-| 미션 4 | 재고 데이터 | 긴급 발주 품목, 발주 우선순위 |
-| 미션 5 | 설문 데이터 | 부서별 만족도, 개선 필요 영역 |
-| 미션 6 | 전체 종합 | CEO 보고용 1페이지 요약 |
+| 미션 1 | 성수 1월+2월 | 매출 현황 + 1월 대비 성장률, 주차별 추이, 베스트셀러 |
+| 미션 2 | 성수 2월 | 고객 국적별 분석, 인바운드 전략 |
+| 미션 3 | 재고 데이터 | 긴급 발주 품목, 벚꽃 시즌 대비 |
+| 미션 4 | 성수+북촌 2월 | 매장간 고객층, 인기 상품, 객단가 비교 |
+| 미션 5 | 온라인 2월 | 채널별(네이버/쿠팡/컬리) 매출, 지역별 수요 |
+| 미션 6 | 전채널 5개 종합 | 봉진 의장 보고용 전채널 1페이지 요약 |
 
 ### 실습 가이드 위치
 - **상세 가이드**: `00-system/claude-code-practice-guide.md`
@@ -256,8 +257,8 @@ imi-workspace/
 ### 최초 설정 (5분)
 ```bash
 # 1. Clone
-git clone https://github.com/Rhim80/imi-workspace.git
-cd imi-workspace
+git clone https://github.com/Rhim80/do-better-workspace.git
+cd do-better-workspace
 
 # 2. Claude Code에서 열기
 # VS Code 또는 터미널에서 Claude Code 실행
