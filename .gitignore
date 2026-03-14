@@ -22,7 +22,10 @@ CLAUDE.md
 # Scripts with sensitive data
 scripts/*_local.sh
 
-# Google Calendar API credentials
+# Google Workspace API credentials
+00-system/02-scripts/gws/credentials.json
+00-system/02-scripts/gws/token.json
+00-system/02-scripts/gws/venv/
 00-system/02-scripts/calendar/credentials.json
 00-system/02-scripts/calendar/token.pickle
 
