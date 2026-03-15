@@ -8,16 +8,17 @@
 ## 📋 오늘의 우선순위
 
 ### 🎯 Top 3 Tasks
-- [ ]
-- [ ]
-- [ ]
+{{top3_tasks}}
 
 ### 📅 스케줄
 
 #### 일정
 | 시간 | 활동 | 상태 |
 |------|------|------|
-|  |  |  |
+{{schedule_table}}
+
+#### 다가오는 일정 (2-3일)
+{{upcoming_events}}
 
 ---
 
@@ -60,6 +61,12 @@
 
 ## 📝 Quick Notes
 
+### 📱 텔레그램 Inbox
+{{telegram_inbox}}
+
+### 📧 확인할 메일
+{{gmail_summary}}
+
 ### 👨‍👩‍👧‍👦 개인 & 가족
 - 건강:
 - 가족:
@@ -101,7 +108,7 @@
 
 ## 🔗 관련 링크
 
-- [[{{yesterday}}|어제]] ← → [[{{tomorrow}}|내일]]
+- [[{{yesterday_path}}|어제]] ← → [[{{tomorrow_path}}|내일]]
 - 주간 리뷰: [[Weekly Review {{week}}]]
 
 ---

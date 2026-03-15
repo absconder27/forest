@@ -26,6 +26,9 @@ scripts/*_local.sh
 00-system/02-scripts/gws/credentials.json
 00-system/02-scripts/gws/token.json
 00-system/02-scripts/gws/venv/
+
+# Telegram Bot state
+00-system/02-scripts/telegram/last_update_id.txt
 00-system/02-scripts/calendar/credentials.json
 00-system/02-scripts/calendar/token.pickle
 

@@ -1,0 +1,41 @@
+ ▐▛███▜▌   Claude Code v2.1.76
+▝▜█████▛▘  Opus 4.6 (1M context) · Claude Max
+  ▘▘ ▝▝    ~/do-better-workspace
+
+❯ .claude 파일로 가고싶어                                                       
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ .claude/ 디렉토리 구조입니다:
+
+  .claude/
+  ├── agents/
+  ├── commands/
+  └── skills/
+
+  어떤 폴더나 파일을 보고 싶으신가요?
+
+❯ .claude 전역폴더 위치 알려줘                                                  
+
+⏺ 전역 .claude 폴더 경로는:
+
+  /Users/forest/.claude/
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ 주요 항목:
+
+  - settings.json - 전역 설정
+  - projects/ - 프로젝트별 메모리/설정
+  - commands/ - 전역 커맨드 (없으면 생성 가능)
+  - sessions/ - 세션 기록
+  - plans/ - 플랜 저장소
+
+  특정 파일이나 폴더를 더 보고 싶으시면 말씀해주세요.
+
+❯ 열어줘                                                                        
+
+⏺ Bash(open /Users/forest/.claude/)
+  ⎿  (No output)
+
+⏺ Finder에서 열었습니다.

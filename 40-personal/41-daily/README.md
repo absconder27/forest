@@ -2,15 +2,27 @@
 
 매일 작성하는 노트입니다.
 
+## 폴더 구조
+
+```
+41-daily/
+├── YYYY/
+│   ├── MM/
+│   │   ├── YYYY-MM-DD.md
+│   │   └── ...
+│   └── ...
+└── README.md
+```
+
 ## 파일명 규칙
 
-`YYYY-MM-DD.md` 형식을 사용합니다.
+`YYYY/MM/YYYY-MM-DD.md` 형식을 사용합니다.
 
-예: `2025-10-28.md`
+예: `2026/03/2026-03-15.md`
 
 ## 템플릿
 
-`00-system/01-templates/daily-note.md`를 참고하세요.
+`00-system/01-templates/daily-note-template.md`를 참고하세요.
 
 ## 내용 예시
 
