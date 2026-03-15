@@ -55,7 +55,7 @@ export default function JugglingObject({ data, index, position }: Props) {
         onMouseLeave={() => setShowTooltip(false)}
         className="relative flex flex-col items-center"
       >
-        <div className="w-14 h-14 md:w-18 md:h-18 flex items-center justify-center">
+        <div className="w-25 h-25 md:w-32 md:h-32 flex items-center justify-center">
           {!imageError ? (
             <img
               src={data.image}

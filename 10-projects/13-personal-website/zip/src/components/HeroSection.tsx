@@ -8,7 +8,7 @@ function getArchPositions(count: number) {
     const angle = Math.PI + (Math.PI * (i + 0.5)) / count;
     const radiusX = 38;
     const radiusY = 25;
-    const x = 50 + radiusX * Math.cos(angle);
+    const x = 45 + radiusX * Math.cos(angle);
     const y = 42 + radiusY * Math.sin(angle);
     positions.push({ x, y });
   }

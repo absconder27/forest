@@ -9,7 +9,7 @@ export default function CharacterIllustration() {
       <img
         src="/images/character.png"
         alt="Kyurim Kim"
-        className="w-full max-w-xs md:max-w-sm h-auto drop-shadow-sm"
+        className="w-full max-w-xs md:max-w-sm h-auto"
         onError={() => setImageError(true)}
       />
     );
