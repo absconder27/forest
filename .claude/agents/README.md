@@ -58,6 +58,39 @@ See `zettelkasten-linker.md` for:
 - Link confidence settings
 - Exclude patterns
 
+### 🖊 Copywriter
+
+**Purpose**: 뉴믹스 브랜드 카피를 한국어/영어로 제안
+
+**What it does:**
+1. **카피 작성**: 컨셉별 한국어 3안 + 영어 3안 제안
+2. **스타일**: 일본 카피라이팅(여백) + 한국 광고대행사(위트) 스타일
+3. **추천**: 순위별 추천과 활용 방안 제시
+
+**When to use:**
+- SNS, 패키지, 슬로건, 캠페인, 매장 POP, 광고 카피가 필요할 때
+- 해외시장(일본/대만/미국/싱가포르) 현지화 카피가 필요할 때
+- 한국어/영어 동시 카피가 필요할 때
+
+**How to invoke:**
+
+In Claude Code, say:
+```
+"한남점 오픈 카피 만들어줘"
+```
+
+Or:
+```
+"뉴믹스 글로벌 슬로건 영어로 제안해줘"
+```
+
+Or:
+```
+"인스타그램에 올릴 카피 뽑아줘"
+```
+
+---
+
 ## Creating Your Own Agent
 
 Want to create a custom agent for your workflow?

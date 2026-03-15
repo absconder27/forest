@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --font-handwriting: "Caveat", cursive;
+  --font-marker: "Just Another Hand", cursive;
+}
+
+body {
+  background-color: #ffffff;
+}
