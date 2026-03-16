@@ -432,7 +432,29 @@ def compute_report(target_date: datetime) -> dict:
             channel_data[store_name]["건단가_전주"] = None
             channel_data[store_name]["결제건수_전주"] = None
 
-    # 4. 국가별 매출 비중 (서원님 주간보고 구글독스에서 직접 가져옴)
+    # 4. 롯데면세점 (Row 27: 달러, Row 28: 원화 백만)
+    lotte_usd = None
+    lotte_krw = None
+    try:
+        sheets_svc = get_service("sheets")
+        lotte_data = sheets_svc.spreadsheets().values().get(
+            spreadsheetId=DAILY_REPORT_ID,
+            range=f"'{_get_tab_name(target_date)}'!A27:AH29",
+            valueRenderOption="UNFORMATTED_VALUE",
+        ).execute()
+        lotte_rows = lotte_data.get("values", [])
+        if len(lotte_rows) >= 2 and day_idx is not None:
+            col = day_idx + 3
+            usd_row = lotte_rows[0]
+            krw_row = lotte_rows[1]
+            if col < len(usd_row) and usd_row[col]:
+                lotte_usd = int(_safe_float(usd_row[col]))
+            if col < len(krw_row) and krw_row[col]:
+                lotte_krw = round(_safe_float(krw_row[col]), 1)
+    except Exception as e:
+        print(f"[경고] 롯데면세 조회 실패: {e}", file=sys.stderr)
+
+    # 5. 국가별 매출 비중 (서원님 주간보고 구글독스에서 직접 가져옴)
     country_data = fetch_weekly_foreign_breakdown()
     last_week_country = {}
 
@@ -478,6 +500,8 @@ def compute_report(target_date: datetime) -> dict:
         "last_week_country": last_week_country,
         "roas": roas_value,
         "weather": weather,
+        "lotte_usd": lotte_usd,
+        "lotte_krw": lotte_krw,
         "total": {
             "sales": total_sales,
             "target": total_target,
@@ -550,8 +574,14 @@ def format_report_text(data: dict) -> str:
         lines.append(f"날씨: {weather}")
     else:
         lines.append("날씨: (수동 입력)")
-    lines.append("특이사항")
-    lines.append("   (수동 입력)")
+    lotte_usd = data.get("lotte_usd")
+    lotte_krw = data.get("lotte_krw")
+    if lotte_usd and lotte_krw:
+        lines.append("특이사항")
+        lines.append(f"   롯데면세점 명동 일매출 {lotte_usd:,}불 (한화 약 {lotte_krw}백만)")
+    else:
+        lines.append("특이사항")
+        lines.append("   (수동 입력)")
     lines.append("")
 
     # ── 그래프 1: 매출 요약 ──
@@ -657,9 +687,15 @@ def format_report_html(data: dict) -> str:
     weather = data.get("weather")
     weather_text = weather if weather else "(수동 입력)"
 
+    lotte_usd = data.get("lotte_usd")
+    lotte_krw = data.get("lotte_krw")
+
     parts.append('<ul>')
     parts.append(f'<li {S}>날씨: {html_mod.escape(weather_text)}</li>')
-    parts.append(f'<li {S}>특이사항<ul><li {S}>(수동 입력)</li></ul></li>')
+    if lotte_usd and lotte_krw:
+        parts.append(f'<li {S}>특이사항<ul><li {S}>롯데면세점 명동 일매출 {lotte_usd:,}불 (한화 약 {lotte_krw}백만)</li></ul></li>')
+    else:
+        parts.append(f'<li {S}>특이사항<ul><li {S}>(수동 입력)</li></ul></li>')
     parts.append('</ul>')
 
     # ── 그래프 ──
